@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head><meta charset="UTF-8"></head>
+<body>
+	<nav class="sidebar sidebar-open" th:fragment="nav-sidebar">
+		
+		<!-- área pública -->
+		<ul class="nav nav-pills">
+			<li class="nav-item">
+				<a class="nav-link " th:href="@{/}">
+					<i class="oi oi-home"></i>
+					<span>Home</span>
+				</a>
+			</li>
+			
+			<div sec:authorize="isAnonymous()">
+				<li>
+	                <a th:href="@{/home}">
+	                    <span th:text="#{index.message.paginaSegura}">
+	                </a>
+	            </li>      
+            </div>
+            
+	        <li>
+	        	<a th:href="@{/hoteis/listarTodosHoteis}">
+	        		<span th:text="#{index.message.todosHoteis}">
+	        	</a>
+	        </li>
+	        <li>
+	        	<a th:href="@{/hoteis/formParaBuscaDeHotelPorCidade}">
+	        		<span th:text="#{index.message.hoteisPorCidade}">
+	        	</a>
+	        </li>
+	        <li>
+	        	<a th:href="@{/promo/listarTodas}">
+	        		<span th:text="#{index.message.todasPromos}">
+	        	</a>
+	        </li>
+	        <li>
+	        	<a th:href="@{/promo/listarPorCidade}">
+	        		<span th:text="#{index.message.promosPorCidade}">
+	        	</a>
+	        </li>
+	    </ul>
+		
+		<!-- área de admin -->
+		<div sec:authorize="hasRole('admin.com')">
+			
+			<!-- crud hotel -->
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<span class="nav-link active" th:text="#{sideBar.hotel.title}"></span>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/cidades/cadastrar}">
+						<i class="oi oi-plus"></i>
+						<span th:text="#{sideBar.cadastrar}"></span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/adminhoteis/listar}">
+						<i class="oi oi-spreadsheet"></i>
+						<span th:text="#{sideBar.listar}"></span>
+					</a>
+				</li>
+			</ul>
+
+			<!-- crud site de reserva -->
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<span class="nav-link active" th:text="#{sideBar.siteReserva.title}"></span>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/sites/cadastrar}">
+						<i class="oi oi-plus"></i>
+						<span th:text="#{sideBar.cadastrar}"></span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/sites/listar}">
+						<i class="oi oi-spreadsheet"></i>
+						<span th:text="#{sideBar.listar}"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- área hotel -->
+		<div sec:authorize="hasRole('hotel.com')">
+			<ul class="nav nav-pills">
+				<li class="nav-item"><span class="nav-link active" th:text="#{sideBar.promo.title}"></span></li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/hotel/lista}">
+						<i class="oi oi-spreadsheet"></i>
+						<span th:text="#{hotel.promo.listar}"></span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/hotel/cadastrar}">
+						<i class="oi oi-plus"></i>
+						<span th:text="#{hotel.promo.cadastrar}"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- área site de reserva -->
+		<div sec:authorize="hasRole('siteres.com')">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<span class="nav-link active" th:text="#{sideBar.promo.title}"></span>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/sitereserva/lista}">
+						<i class="oi oi-spreadsheet"></i>
+						<span th:text="#{hotel.promo.listar}"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</body>
+</html>

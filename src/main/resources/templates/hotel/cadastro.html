@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		xmlns:th="http://www.thymeleaf.org"
+      	layout:decorate="~{layout2}">
+<head>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span th:text="#{promoHotel.cadastrar}"></span>
+					</li>
+				</ul>
+			</div>
+			<a class="btn btn-primary btn-md" th:href="@{/hotel/lista}" role="button">
+				<span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
+				<span th:text="#{hotel.promo.listar}"></span>
+			</a>
+		</nav>
+
+		<div class="container" id="cadastro">
+			<div th:replace="fragments/alert"></div>
+			<form th:action="@{/hotel/salvar}" th:object="${promohotel}" method="POST">
+				<div class="form-group col-md-6">
+					<label th:text="#{promoHotel.preco}" for="preco"></label>
+					<input type="text" class="form-control" id="preco" th:placeholder="#{promoHotel.preco}" data-mask="0000,00" data-mask-reverse="true" th:field="*{preco}" th:classappend="${#fields.hasErrors('preco')} ? is-invalid"/>
+					
+					<div class="invalid-feedback">
+						<span th:errors="*{preco}"></span>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-6">
+					<label th:text="#{promoHotel.iniciopromo}" for="inicio"></label>
+					<input type="date" class="form-control" id="iniciopromo" th:placeholder="#{promoHotel.iniciopromo}" th:field="*{inicio}" th:classappend="${#fields.hasErrors('inicio')} ? is-invalid"/>
+					
+					<div class="invalid-feedback">
+						<span th:errors="*{inicio}"></span>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-6">
+					<label th:text="#{promoHotel.fimpromo}" for="fim"></label>
+					<input type="date" class="form-control" id="fimpromo" th:placeholder="#{promoHotel.fimpromo}" th:field="*{fim}" th:classappend="${#fields.hasErrors('fim')} ? is-invalid"/>
+					
+					<div class="invalid-feedback">
+						<span th:errors="*{fim}"></span>
+					</div>
+				</div>
+				
+				
+				<div class="form-group col-md-6">
+					<label th:text="#{promoHotel.site.nome}" for="sitereserva"></label>
+					<select id="sitereserva" class="form-control" th:field="*{sitereserva}" th:classappend="${#fields.hasErrors('sitereserva')} ? is-invalid">
+						<option value="" th:text="#{label.selecione}"></option>
+						<option th:each="sitereserva : ${sitereservas}" th:value="${sitereserva.id}" th:text="${sitereserva.nome}"></option>
+					</select>
+
+					<div class="invalid-feedback">
+						<span th:errors="*{sitereserva}"></span>
+					</div>
+				</div>
+
+				<button type="submit" th:text="#{button.salvar.label}" class="btn btn-primary btn-sm"></button>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

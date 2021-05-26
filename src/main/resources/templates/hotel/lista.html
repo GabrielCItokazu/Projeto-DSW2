@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		xmlns:th="http://www.thymeleaf.org"
+ 		layout:decorate="~{layout2}"> 
+<head>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+	<section class="layout-content" layout:fragment="corpo">
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span th:text="#{promoHotel.title}"></span>
+					</li>
+				</ul>
+				<a class="btn btn-primary btn-md" th:href="@{/hotel/cadastrar}" role="button"> 
+					<span class="oi oi-plus" title="Cadastro" aria-hidden="true"></span> 
+					<span th:text="#{hotel.promo.cadastrar}"></span>
+				</a>
+			</div>
+		</nav>
+		<div class="container" id="listagem">
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-sm">
+					<thead>
+						<tr>
+							<th>
+								<span th:text="#{promoHotel.preco}"></span>
+							</th>
+							<th>
+								<span th:text="#{promoHotel.iniciopromo}"></span>
+							</th>
+							<th>
+								<span th:text="#{promoHotel.fimpromo}"></span>
+							</th>
+							<th>
+								<span th:text="#{promoHotel.hotel.nome}"></span>
+							</th>
+							<th>
+								<span th:text="#{promoHotel.site.nome}"></span>
+							</th>
+							<th>
+								<span th:text="#{label.url}"></span>
+							</th>
+						</tr>
+					</thead>
+					<tr th:each="PromoHotel : ${listapromo}">
+						<td th:text="|R$ ${#numbers.formatDecimal(PromoHotel.getPreco(),2,2,'COMMA')}|"></td>
+						<td th:text="${PromoHotel.getInicio()}"></td>
+						<td th:text="${PromoHotel.getFim()}"></td>
+						<td th:text="${PromoHotel.getHotel().getNome()}"></td>
+						<td th:text="${PromoHotel.getSitereserva().getNome()}"></td>
+						<td th:text="${PromoHotel.getSitereserva().getUrl()}"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

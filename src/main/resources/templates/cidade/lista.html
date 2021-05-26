@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout2}">
+<head>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span th:text="#{cidade.lista}"></span>
+					</li>
+				</ul>
+				<a class="btn btn-primary btn-md" th:href="@{/adminhoteis/cadastrar}" role="button"> 
+					<span class="oi oi-plus" th:title="#{label.cadastro}" aria-hidden="true"></span>
+					<span th:text="#{admin.hotel.new}"></span>
+				</a>
+			</div>
+		</nav>
+
+		<div class="container" id="listagem">
+
+			<div th:replace="fragments/alert"></div>
+
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-sm">
+					<thead>
+						<tr>
+							<th th:text="#{label.id}"></th>
+							<th th:text="#{label.nome}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="cidade : ${cidadesParaSelecionar}">
+							<td th:text="${cidade.id}"></td>
+							<td th:text="${cidade.nome}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div th:replace="fragments/modal :: modal"></div>
+	</section>
+</body>
+</html>

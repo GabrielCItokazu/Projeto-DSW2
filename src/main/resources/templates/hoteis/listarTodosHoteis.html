@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		xmlns:th="http://www.thymeleaf.org"
+		layout:decorate="~{layout2}">
+<head>
+	<meta charset="UTF-8"/>
+</head>
+<body>				
+	<section class="layout-content" layout:fragment="corpo">
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span th:text="#{admin.hotel.lista}"></span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container" id="listagem">
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-sm">
+					<thead>
+						<tr>
+							<th>
+								<span th:text="#{label.nome}"></span>
+							</th>
+							<th>
+								<span th:text="#{label.cidade}"></span>
+							</th>
+							<th>
+								<span th:text="#{hotel.email}"></span>
+							</th>
+							<th>
+								<span th:text="#{label.cnpj}"></span>
+							</th>
+						</tr>
+					</thead>
+					<tr th:each="hotel : ${hoteis}">
+						<td th:text="${hotel.getNome()}"></td>
+						<td th:text="${hotel.getCidade().getNome()}"></td>
+						<td th:text="${hotel.getLogin()}"></td>
+						<td th:text="${hotel.getCnpj()}"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
