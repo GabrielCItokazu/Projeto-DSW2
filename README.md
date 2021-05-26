@@ -18,14 +18,3 @@ Projeto realizado na disciplina de Desenvolvimento de Software para Web 2, do De
 		* $ sudo service mysql restart
 * Rodar o sistema:
 	* $ mvn spring-boot:run
-
-## TODO
-
-* ~~correção de nomes de métodos nos html~~
-* corrigir bug de cidades duplicadas
-* permitir filtrar hotéis por período
-* validação de campos
-* tratamento de erros
-* mensagens de feedback
-* melhorar páginas do sistema
-* melhorar estilização
