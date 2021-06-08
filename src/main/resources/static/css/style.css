@@ -6,7 +6,31 @@ html, body {
 body {
     padding-top: 56px;
     padding-left: 0;
-} 
+}
+
+@media screen and (min-width: 1024px) {
+    #home-logo {
+        width: 800px;
+    }
+}
+
+@media screen and (min-width: 850px) and (max-width: 1023px) {
+    #home-logo {
+        width: 550px;
+    }
+}
+
+@media screen and (min-width: 570px) and (max-width: 849px) {
+    #home-logo {
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 569px) {
+    #home-logo {
+        width: 300px;
+    }
+}
 
 /* Main layout */
 .layout-main {
