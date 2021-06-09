@@ -17,54 +17,54 @@
 				</ul>
 			</div>
 		</nav>
-		<div>
-			<form name ='form'>
-				<table>
+		<div class="container" id="listagem">
+			<div class="table-responsive">
+				<form name ='form'>
+					<table>
+						<tr>
+							<td>
+								<span th:text="#{label.cidade}">:
+							</td>
+							<td>
+								<select name='cidadeSelecionada' onchange='submit()'>
+									<option value='0' th:text="#{label.selecione}"></option>
+									<option th:each="nomeCidade : ${cidadesParaSelecionar}" th:text="${nomeCidade.getNome()}"></option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<table class="tabela" border="1">
 					<tr>
-						<td>
-							<span th:text="#{label.cidade}">:
+						<th class="table-data">
+							<span th:text="#{label.cidade}"></span>
+						</th>
+						<th class="table-data">
+							<span th:text="#{label.nome}"></span>
+						</th>
+						<th class="table-data">
+							<span th:text="#{hotel.email}"></span>
+						</th>
+						<th class="table-data">
+							<span th:text="#{label.cnpj}"></span>
+						</th>
+					</tr>
+					<tr th:each="hotel : ${hotelDaCidade}">
+						<td class="table-data">
+							<span class="table-data-input" th:text="${hotel.getCidade().getNome()}"></span>
 						</td>
-						<td>
-							<select name='cidadeSelecionada' onchange='submit()'>
-								<option value='0' th:text="#{label.selecione}"></option>
-								<option th:each="nomeCidade : ${cidadesParaSelecionar}" th:text="${nomeCidade.getNome()}"></option>
-							</select>
+						<td class="table-data">
+							<span class="table-data-input" th:text="${hotel.getNome()}"></span>
+						</td>
+						<td class="table-data">
+							<span class="table-data-input" th:text="${hotel.getLogin()}"></span>
+						</td>
+						<td class="table-data">
+							<span class="table-data-input" th:text="${hotel.getCnpj()}"></span>
 						</td>
 					</tr>
 				</table>
-			</form>
-		</div>
-		<div class="container">
-			<table class="tabela" border="1">
-				<tr>
-					<th class="table-data">
-						<span th:text="#{label.cidade}"></span>
-					</th>
-					<th class="table-data">
-						<span th:text="#{label.nome}"></span>
-					</th>
-					<th class="table-data">
-						<span th:text="#{hotel.email}"></span>
-					</th>
-					<th class="table-data">
-						<span th:text="#{label.cnpj}"></span>
-					</th>
-				</tr>
-				<tr th:each="hotel : ${hotelDaCidade}">
-					<td class="table-data">
-						<input class="table-data-input" th:value="${hotel.getCidade().getNome()}" disabled="true">
-					</td>
-					<td class="table-data">
-						<input class="table-data-input" th:value="${hotel.getNome()}" disabled="true">
-					</td>
-					<td class="table-data">
-						<input class="table-data-input" th:value="${hotel.getLogin()}" disabled="true">
-					</td>
-					<td class="table-data">
-						<input class="table-data-input" th:value="${hotel.getCnpj()}" disabled="true">
-					</td>
-				</tr>
-			</table>
+			</div>
 		</div>
 	</section>
 </body>
