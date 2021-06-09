@@ -30,6 +30,10 @@ body {
     #home-logo {
         width: 300px;
     }
+
+    #username, #password, #login-submit {
+        font-size: 3vw;
+    }
 }
 
 /* Main layout */
