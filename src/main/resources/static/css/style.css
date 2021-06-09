@@ -31,9 +31,15 @@ body {
         width: 300px;
     }
 
-    #username, #password, #login-submit {
+    #username, #password, #login-submit, #btn-goback {
         font-size: 3vw;
     }
+}
+
+#listagem {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 /* Main layout */
