@@ -19,10 +19,14 @@
 										<b>
 											<span th:text="#{user.role}"></span>:
 										</b>
-										<span sec:authentication="principal.authorities"></span>
+										<span sec:authentication="principal.authorities"></span> |
+										<b>
+											<span>Localidade:</span>  
+										</b>
+										<span id="local">local</span>
 									</div>
 									<div class="col-sm-3 col-sm-offset-3">
-										<input type="submit" name="login-submit" id="login-submit" class="form-control btn btn-info" value="Logout">
+										<input type="submit" name="login-submit" id="login-submit" class="btn btn-primary" value="Sair">
 									</div>
 								</div>
 							</div>
