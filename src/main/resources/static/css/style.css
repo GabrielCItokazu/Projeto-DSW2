@@ -12,6 +12,10 @@ body {
     text-align: center;
 }
 
+#div-form {
+    width: 100%;
+}
+
 @media screen and (min-width: 1024px) {
     #home-logo {
         width: 800px;
