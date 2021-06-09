@@ -8,22 +8,22 @@
 		
 		<div sec:authorize="hasRole('admin.com')">
 			<div class="container" style="text-align: center;">
-				<h1 th:text="#{admin.index.title}"></h1>
-				<img alt="" th:src="@{/image/image3}" style="width:800px;">
+				<h2 th:text="#{admin.index.title}"></h2>
+				<img id="home-body" alt="" th:src="@{/image/logotipo.svg}">
 			</div>
 		</div>
 
 		<div sec:authorize="hasRole('hotel.com')">
-			<div class="container" style="text-align: center;">
-				<h1 th:text="#{hotel.index.title}"></h1>
-				<img alt="" th:src="@{/image/image3}" style="width:800px;">
+			<div id="home-body" class="container" style="text-align: center;">
+				<h2 th:text="#{hotel.index.title}"></h2>
+				<img id="home-body" alt="" th:src="@{/image/logotipo.svg}">
 			</div>
 		</div>
 	
 		<div sec:authorize="hasRole('siteres.com')">
-			<div class="container" style="text-align: center;">
-				<h1 th:text="#{siteReserva.index.title}"></h1>
-				<img alt="" th:src="@{/image/image3}" style="width:800px;">
+			<div id="home-body" class="container" style="text-align: center;">
+				<h2 th:text="#{siteReserva.index.title}"></h2>
+				<img id="home-body" alt="" th:src="@{/image/logotipo.svg}">
 			</div>
 		</div>
 
