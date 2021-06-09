@@ -34,37 +34,38 @@
 				</table>
 			</form>
 		</div>
-			
-		<table border="1" style="width: 700px; border: 1px solid black">
-			<tr>
-				<th style="width: 25%; text-align: center;">
-					<span th:text="#{label.cidade}"></span>
-				</th>
-				<th style="width: 25%; text-align: center;">
-					<span th:text="#{label.nome}"></span>
-				</th>
-				<th style="width: 25%; text-align: center;">
-					<span th:text="#{hotel.email}"></span>
-				</th>
-				<th style="width: 25%; text-align: center;">
-					<span th:text="#{label.cnpj}"></span>
-				</th>
-			</tr>
-			<tr th:each="hotel : ${hotelDaCidade}">
-				<td style="text-align: center">
-					<input th:value="${hotel.getCidade().getNome()}" style="text-align: center" disabled="true">
-				</td>
-				<td style="text-align: center">
-					<input th:value="${hotel.getNome()}" style="text-align: center" disabled="true">
-				</td>
-				<td style="text-align: center">
-					<input th:value="${hotel.getLogin()}" style="text-align: center" disabled="true">
-				</td>
-				<td style="text-align: center">
-					<input th:value="${hotel.getCnpj()}" style="text-align: center" disabled="true">
-				</td>
-			</tr>
-		</table>
+		<div class="container">
+			<table class="tabela" border="1">
+				<tr>
+					<th class="table-data">
+						<span th:text="#{label.cidade}"></span>
+					</th>
+					<th class="table-data">
+						<span th:text="#{label.nome}"></span>
+					</th>
+					<th class="table-data">
+						<span th:text="#{hotel.email}"></span>
+					</th>
+					<th class="table-data">
+						<span th:text="#{label.cnpj}"></span>
+					</th>
+				</tr>
+				<tr th:each="hotel : ${hotelDaCidade}">
+					<td class="table-data">
+						<input class="table-data-input" th:value="${hotel.getCidade().getNome()}" disabled="true">
+					</td>
+					<td class="table-data">
+						<input class="table-data-input" th:value="${hotel.getNome()}" disabled="true">
+					</td>
+					<td class="table-data">
+						<input class="table-data-input" th:value="${hotel.getLogin()}" disabled="true">
+					</td>
+					<td class="table-data">
+						<input class="table-data-input" th:value="${hotel.getCnpj()}" disabled="true">
+					</td>
+				</tr>
+			</table>
+		</div>
 	</section>
 </body>
 </html>
