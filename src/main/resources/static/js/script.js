@@ -29,7 +29,7 @@ function myFunction_iter_table(item, index) {
     }
 }
 
-/* validação login*/
+/* validação do email*/
 const form  = document.getElementById('formulario')
 
 function validaForm(e) {
@@ -40,7 +40,7 @@ function validaForm(e) {
     let emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
     if (!email.match(emailFormat)) {
-        erroMsg = "erro carai"
+        erroMsg = "Formato de email inválido."
         submitOk = "false"
     }
     emailError.textContent = erroMsg
