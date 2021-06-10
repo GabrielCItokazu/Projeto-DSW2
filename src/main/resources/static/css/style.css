@@ -8,58 +8,8 @@ body {
     padding-left: 0;
 }
 
-#div-home-logo {
+#div-index-logo {
     text-align: center;
-}
-
-#div-form {
-    width: 100%;
-}
-
-@media screen and (min-width: 1024px) {
-    #home-logo {
-        width: 800px;
-    }
-}
-
-@media screen and (min-width: 570px) and (max-width: 1023px) {
-    #home-logo {
-        width: 550px;
-    }
-}
-
-@media screen and (max-width: 569px) {
-    #home-logo {
-        width: 300px;
-    }
-
-    #username, #password, #login-submit, #btn-goback {
-        width: 100%;
-    }
-}
-
-.table-data {
-    width: 25%;
-    text-align: center;
-}
-
-.table-data-input {
-    width: 100%;
-    text-align: center;
-}
-
-.container {
-    width: 100%;
-    padding-top: 20px;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-.tabela {
-    width: 100%;
-    margin-bottom: 1rem;
-    border: 1px solid black
 }
 
 /* Main layout */
@@ -73,6 +23,11 @@ body {
 .layout-content {
     width: 100%;
     padding-top: 0px;
+}
+
+.container {	
+    width: 100%;
+    padding-top: 20px;
 }
 
 /* Sidebar */
@@ -242,4 +197,8 @@ body {
 	#home-logo, #home-body, .container h2 {
 		display: none;
 	}
+
+    #username, #password, #login-submit, #btn-goback-error-page {
+        width: 100%;
+    }
 }
