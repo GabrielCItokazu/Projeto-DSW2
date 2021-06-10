@@ -12,6 +12,14 @@ body {
     text-align: center;
 }
 
+.error {
+    border: 1px solid transparent;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    border-radius: .25rem;
+}
+
 /* Main layout */
 .layout-main {
     display: flex;
